@@ -9,6 +9,7 @@
 //              https://geosoft.no/development/cppstyle.html
 
 #include "maze_t.hpp"
+#include "dll_t.h"
 
 
 // constructor
@@ -134,11 +135,22 @@ maze_t::solve_(const int i, const int j)
   // retornar 'true' si 'i' y 'j' han llegado a la salida
 
   if ((i == i_end_) && (j == j_end_)) {
+    cout << "¡¡ Se ha encontrado una salida al laberinto !!" << endl;
+    cout << "Pasos realizados para encontrar el laberinto: " << endl;
+    for (int i = 0; i < steps_.get_size(); i++) {
+      cout << "(" << steps_.get_head()->get_data().first << ", " << steps_.get_head()->get_data().second << ")" << endl;
+      steps_.pop_front();
+    }
+    cout << endl;
     return true;
   }
 
   // marcamos la celda como visitada
   visited_(i, j) = true;
+  // Implementación de la Fase III
+  pair<int, int> cell(i, j);
+  dll_node_t<pair<int, int>>* node = new dll_node_t<pair<int, int>>(cell);
+  steps_.push_back(node);
 
   // FASE III
   // almacenar el paso en la lista de pasos

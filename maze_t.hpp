@@ -12,7 +12,8 @@
 
 #include <iostream>
 #include "matrix_t.hpp"
-//#include "step_t.hpp"
+#include "dll_t.h"
+#include <utility>
 
 #define TRACE(x) cout << (#x) << "= " << (x) << endl
 
@@ -39,8 +40,7 @@ using namespace AED;
 
 typedef matrix_t<short> matrix_t_short;
 typedef matrix_t<bool> matrix_t_bool;
-// Implementación de la Fase III de la práctica
-//typedef step_t<short> step_t_short;
+
 
 // enumera las direcciones Norte, Este, Sur y Oeste (West)
 enum direction_t {N, E, S, W};
@@ -62,7 +62,7 @@ private:
   int i_start_, j_start_, i_end_, j_end_;
 //  // Implementación de la Fase III
 //  // Lista que guarda todos los pasos que se realizan para resolver el laberinto
-//  step_t_short step_list_;
+  dll_t<pair<int, int>> steps_;
 
 public:
   // constructor y destructor

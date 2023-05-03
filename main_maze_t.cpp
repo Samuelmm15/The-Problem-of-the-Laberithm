@@ -24,8 +24,7 @@ int main()
   cout << M << endl;
   
   if (M.solve())
-  { 
-    cout << "¡¡ Se ha encontrado una salida al laberinto !!" << endl;
+  {
     cout << M << endl;
   }
   else
