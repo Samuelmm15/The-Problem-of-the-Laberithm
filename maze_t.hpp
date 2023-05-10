@@ -78,6 +78,7 @@ public:
 private:
   bool is_ok_(const int, const int) const;
   bool solve_(const int, const int);
+  int counter_ = 0;
 };
 
 istream& operator>>(istream&, maze_t&);

@@ -17,7 +17,7 @@ maze_t::maze_t():
 matrix_(),
 visited_(), 
 i_start_(-1),
-j_start_(-1), 
+j_start_(-1),
 i_end_(-1),
 j_end_(-1)
 {}
@@ -142,6 +142,8 @@ maze_t::solve_(const int i, const int j)
       steps_.pop_front();
     }
     cout << endl;
+    cout << endl;
+    cout << "Implementación de la modificacion" << endl;
     return true;
   }
 
@@ -173,6 +175,8 @@ maze_t::solve_(const int i, const int j)
   if (is_ok_(i, j+1)) {
     if (solve_(i, j+1)) {
       matrix_(i, j) = PATH_ID;
+      counter_++;
+      cout << "Numero de pasos realizados: " << counter_ << endl;
       return true;
     }
   }
